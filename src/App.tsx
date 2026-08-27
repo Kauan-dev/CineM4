@@ -1,8 +1,11 @@
+import Layout from "./components/layout/Layout";
+import AppRouter from "./router/AppRouter";
+
 function App() {
   return (
-    <main className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold text-amber-500">CineM4</h1>
-    </main>
+    <Layout>
+      <AppRouter />
+    </Layout>
   );
 }
 
