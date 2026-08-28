@@ -1,8 +1,9 @@
-import { Home, Compass, Clapperboard, TvMinimal, Bookmark } from "lucide-react";
 import { NavLink } from "react-router";
+import { Container } from "./Container";
+import { Home, Compass, Clapperboard, TvMinimal, Bookmark } from "lucide-react";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `flex flex-col items-center gap-0.75 border-t-3 pt-[8px] pb-[6px] text-[11px] ${
+  `flex flex-col items-center gap-0.75 border-t-3 duration-250 ease-in-out pt-[8px] pb-[6px] text-[11px] ${
     isActive
       ? "border-amber-400 text-amber-400"
       : "border-t-transparent text-gray-400"
@@ -13,9 +14,8 @@ const navIconClass = (isActive: boolean) =>
 
 export function TabBar() {
   return (
-    //md:hidden
-    <nav className="fixed bottom-0 w-full bg-[#000000] text-white lg:hidden">
-      <div className="flex flex-row justify-around">
+    <nav className="fixed bottom-0 flex w-full justify-center bg-black/90 text-white backdrop-blur-md lg:hidden">
+      <Container className="flex w-full max-w-130 flex-row justify-between">
         <NavLink to="/" end className={navLinkClass}>
           {({ isActive }) => (
             <>
@@ -56,7 +56,7 @@ export function TabBar() {
             </>
           )}
         </NavLink>
-      </div>
+      </Container>
     </nav>
   );
 }

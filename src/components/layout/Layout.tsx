@@ -12,7 +12,7 @@ function Layout({ children }: LayoutProps) {
     <>
       <Header />
 
-      <main>{children}</main>
+      <main className="my-15 py-4 lg:mb-0">{children}</main>
 
       <TabBar />
     </>
