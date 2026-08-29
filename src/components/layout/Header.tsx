@@ -45,7 +45,7 @@ export function Header() {
   }, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `flex h-full items-center border-b-2 text-[13px] duration-250 ease-in-out tracking-wide hover:text-neutral-400 ${
+    `flex h-full items-center border-b-2 text-[13px] duration-250 ease-in-out tracking-wide  hover:text-neutral-400 ${
       isActive
         ? "border-b-amber-400 !text-amber-400"
         : "border-b-transparent text-neutral-200"
@@ -72,29 +72,36 @@ export function Header() {
           </NavLink>
 
           <div className="hidden h-full gap-8 lg:flex">
+            <NavLink className={navLinkClass} to="/" draggable="false">
+              <div className="flex items-center gap-2" tabIndex={-1}>
+                <Home size={18} />
+                <span>ÍNICIO</span>
+              </div>
+            </NavLink>
+
             <NavLink className={navLinkClass} to="/search" draggable="false">
-              <div className="flex items-center gap-1.5" tabIndex={-1}>
+              <div className="flex items-center gap-2" tabIndex={-1}>
                 <Search size={18} />
                 <span>BUSCAR</span>
               </div>
             </NavLink>
 
             <NavLink className={navLinkClass} to="/discover" draggable="false">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 <Compass size={18} />
                 <span>EXPLORAR</span>
               </div>
             </NavLink>
 
             <NavLink className={navLinkClass} to="/movies" draggable="false">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 <Clapperboard size={18} />
                 <span>FILMES</span>
               </div>
             </NavLink>
 
             <NavLink className={navLinkClass} to="/tv-shows" draggable="false">
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 <TvMinimal size={18} />
                 <span>SÉRIES</span>
               </div>
@@ -105,7 +112,7 @@ export function Header() {
               to="/watch-list"
               draggable="false"
             >
-              <div className="flex items-center gap-1.5">
+              <div className="flex items-center gap-2">
                 <Bookmark size={18} />
                 <span>SALVOS</span>
               </div>
@@ -113,15 +120,21 @@ export function Header() {
           </div>
         </div>
 
-        <div className="ml-4 flex items-center gap-3">
-          <NavLink to="/profile" title="Profile">
+        <div className="ml-4 flex items-center gap-4">
+          <NavLink to="/search" title="Search" className="lg:hidden">
+            {({ isActive }) => (
+              <Search
+                className={navIconClass(isActive, "hover:text-neutral-400")}
+                size={28}
+              />
+            )}
+          </NavLink>
+
+          <NavLink to="/profile" title="Profile" draggable="false">
             {({ isActive }) => (
               <CircleUser
-                className={navIconClass(
-                  isActive,
-                  "duration-250 ease-in-out hover:text-neutral-400",
-                )}
-                size={32}
+                className={navIconClass(isActive, "hover:text-neutral-400")}
+                size={28}
               />
             )}
           </NavLink>
