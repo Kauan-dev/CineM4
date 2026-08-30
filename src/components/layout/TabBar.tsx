@@ -3,7 +3,7 @@ import { Container } from "./Container";
 import { Home, Compass, Clapperboard, TvMinimal, Bookmark } from "lucide-react";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `flex flex-col items-center gap-0.75 border-t-3 duration-250 ease-in-out pt-[8px] pb-[6px] text-[11px] ${
+  `flex flex-col items-center gap-0.75 border-t-3 lg:duration-250 lg:ease-in-out pt-[8px] pb-[6px] text-[11px] ${
     isActive
       ? "border-amber-400 text-amber-400"
       : "border-t-transparent text-gray-400"

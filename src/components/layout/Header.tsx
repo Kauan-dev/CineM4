@@ -45,7 +45,7 @@ export function Header() {
   }, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `flex h-full items-center border-b-2 text-[13px] duration-250 ease-in-out tracking-wide  hover:text-neutral-400 ${
+    `flex h-full items-center border-b-2 text-[13px] lg:duration-250 lg:ease-in-out tracking-wide  hover:text-neutral-400 ${
       isActive
         ? "border-b-amber-400 !text-amber-400"
         : "border-b-transparent text-neutral-200"
