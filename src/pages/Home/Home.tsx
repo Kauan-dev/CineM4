@@ -1,104 +1,33 @@
+import { useHomeData } from "@/hooks/useHomeData";
+
 import { Container } from "@/components/layout/Container";
+import { MediaSection } from "@/components/sections/MediaSection";
 
 export function Home() {
+  const {
+    popularMovies,
+    popularSeries,
+    topRatedMovies,
+    topRatedSeries,
+    loading,
+    error,
+  } = useHomeData();
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
+
+  if (error) {
+    return <p>{error}</p>;
+  }
+
   return (
     <Container>
-      <h1 className="text-3xl font-bold">CineM4</h1>
+      <MediaSection title="Filmes populares" media={popularMovies} />
+      <MediaSection title="Séries populares" media={popularSeries} />
 
-      <div className="flex flex-wrap gap-4">
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-        <img src="https://picsum.photos/100/100" alt="" />
-      </div>
+      <MediaSection title="Filmes mais bem avaliados" media={topRatedMovies} />
+      <MediaSection title="Séries mais bem avaliadas" media={topRatedSeries} />
     </Container>
   );
 }
