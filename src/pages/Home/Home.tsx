@@ -1,6 +1,5 @@
 import { useHomeData } from "@/hooks/useHomeData";
 
-import { Container } from "@/components/layout/Container";
 import { MediaSection } from "@/components/sections/MediaSection";
 
 export function Home() {
@@ -22,12 +21,14 @@ export function Home() {
   }
 
   return (
-    <Container>
+    <div>
       <MediaSection title="Filmes populares" media={popularMovies} />
+
       <MediaSection title="Séries populares" media={popularSeries} />
 
       <MediaSection title="Filmes mais bem avaliados" media={topRatedMovies} />
+
       <MediaSection title="Séries mais bem avaliadas" media={topRatedSeries} />
-    </Container>
+    </div>
   );
 }

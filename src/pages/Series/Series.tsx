@@ -1,4 +1,3 @@
-import { Container } from "@/components/layout/Container";
 import { MediaSection } from "@/components/sections/MediaSection";
 import { useSeriesData } from "@/hooks/useSeriesData";
 
@@ -14,9 +13,9 @@ export function Series() {
   }
 
   return (
-    <Container>
+    <div>
       <MediaSection title="Series populares" media={popularSeries} />
       <MediaSection title="Series mais bem avaliadas" media={topRatedSeries} />
-    </Container>
+    </div>
   );
 }

@@ -14,7 +14,7 @@ export function MediaCard({ media }: MediaCardProps) {
     <Link
       to={`/${type}/${media.id}`}
       title={title}
-      className="block w-36 shrink-0 rounded-sm outline-2 outline-offset-3 outline-transparent transition-all duration-300 ease-in-out hover:outline-neutral-50 focus-visible:outline-neutral-50"
+      className="w-ful block shrink-0 rounded-sm outline-2 outline-offset-3 outline-transparent transition-all duration-300 ease-in-out hover:outline-neutral-50 focus-visible:outline-neutral-50"
     >
       {media.poster_path && (
         <img

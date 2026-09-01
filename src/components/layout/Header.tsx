@@ -45,7 +45,7 @@ export function Header() {
   }, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `flex h-full items-center border-b-2 text-[13px] lg:duration-250 lg:ease-in-out tracking-wide  hover:text-neutral-400 ${
+    `flex h-full items-center border-b-2 text-[13px] lg:duration-250 lg:ease-in-out tracking-wide hover:text-neutral-400 ${
       isActive
         ? "border-b-amber-400 !text-amber-400"
         : "border-b-transparent text-neutral-200"
@@ -65,7 +65,7 @@ export function Header() {
       <Container className="flex h-full items-center justify-between">
         <div className="flex h-full items-center gap-10">
           <NavLink to="/" title="Home" draggable="false">
-            <div className="text-[27px] font-bold duration-300 ease-in-out hover:scale-105 md:mb-1">
+            <div className="text-[27px] duration-300 ease-in-out hover:scale-105 md:mb-1">
               <span>Cine</span>
               <span className="text-amber-400">M4</span>
             </div>
