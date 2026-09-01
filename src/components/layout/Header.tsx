@@ -75,14 +75,7 @@ export function Header() {
             <NavLink className={navLinkClass} to="/" draggable="false">
               <div className="flex items-center gap-2" tabIndex={-1}>
                 <Home size={18} />
-                <span>ÍNICIO</span>
-              </div>
-            </NavLink>
-
-            <NavLink className={navLinkClass} to="/search" draggable="false">
-              <div className="flex items-center gap-2" tabIndex={-1}>
-                <Search size={18} />
-                <span>BUSCAR</span>
+                <span>INÍCIO</span>
               </div>
             </NavLink>
 
@@ -100,7 +93,12 @@ export function Header() {
               </div>
             </NavLink>
 
-            <NavLink className={navLinkClass} to="/tv-shows" draggable="false">
+            <NavLink
+              className={navLinkClass}
+              to="/series"
+              draggable="false"
+              end
+            >
               <div className="flex items-center gap-2">
                 <TvMinimal size={18} />
                 <span>SÉRIES</span>
@@ -115,6 +113,13 @@ export function Header() {
               <div className="flex items-center gap-2">
                 <Bookmark size={18} />
                 <span>SALVOS</span>
+              </div>
+            </NavLink>
+
+            <NavLink className={navLinkClass} to="/search" draggable="false">
+              <div className="flex items-center gap-2" tabIndex={-1}>
+                <Search size={18} />
+                <span>BUSCAR</span>
               </div>
             </NavLink>
           </div>

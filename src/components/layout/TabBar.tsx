@@ -24,6 +24,16 @@ export function TabBar() {
             </>
           )}
         </NavLink>
+
+        <NavLink to="/discover" className={navLinkClass}>
+          {({ isActive }) => (
+            <>
+              <Compass size={24} className={navIconClass(isActive)} />
+              <span>Explorar</span>
+            </>
+          )}
+        </NavLink>
+
         <NavLink to="/movies" className={navLinkClass}>
           {({ isActive }) => (
             <>
@@ -32,7 +42,7 @@ export function TabBar() {
             </>
           )}
         </NavLink>
-        <NavLink to="/tv-shows" className={navLinkClass}>
+        <NavLink to="/series" className={navLinkClass}>
           {({ isActive }) => (
             <>
               <TvMinimal size={24} className={navIconClass(isActive)} />
@@ -40,14 +50,7 @@ export function TabBar() {
             </>
           )}
         </NavLink>
-        <NavLink to="/discover" className={navLinkClass}>
-          {({ isActive }) => (
-            <>
-              <Compass size={24} className={navIconClass(isActive)} />
-              <span>Descobrir</span>
-            </>
-          )}
-        </NavLink>
+
         <NavLink to="/watch-list" className={navLinkClass}>
           {({ isActive }) => (
             <>
