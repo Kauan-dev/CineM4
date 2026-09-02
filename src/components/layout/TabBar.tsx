@@ -3,7 +3,7 @@ import { Container } from "./Container";
 import { Home, Compass, Clapperboard, TvMinimal, Bookmark } from "lucide-react";
 
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-  `flex flex-col items-center gap-0.75 border-t-3 lg:duration-250 lg:ease-in-out pt-[8px] pb-[6px] text-[11px] ${
+  `flex flex-col items-center gap-0.75 border-t-3 lg:duration-250 lg:ease-in-out pt-[8px] pb-[6px] text-[11px] font-semibold ${
     isActive
       ? "border-amber-400 text-amber-400"
       : "border-t-transparent text-gray-400"
@@ -25,15 +25,6 @@ export function TabBar() {
           )}
         </NavLink>
 
-        <NavLink to="/discover" className={navLinkClass}>
-          {({ isActive }) => (
-            <>
-              <Compass size={24} className={navIconClass(isActive)} />
-              <span>Explorar</span>
-            </>
-          )}
-        </NavLink>
-
         <NavLink to="/movies" className={navLinkClass}>
           {({ isActive }) => (
             <>
@@ -47,6 +38,15 @@ export function TabBar() {
             <>
               <TvMinimal size={24} className={navIconClass(isActive)} />
               <span>Séries</span>
+            </>
+          )}
+        </NavLink>
+
+        <NavLink to="/discover" className={navLinkClass}>
+          {({ isActive }) => (
+            <>
+              <Compass size={24} className={navIconClass(isActive)} />
+              <span>Explorar</span>
             </>
           )}
         </NavLink>

@@ -28,9 +28,9 @@ export function Header() {
 
       if (currentScrollY <= 0) {
         setIsVisible(true);
-      } else if (currentScrollY > lastScrollY.current + 5) {
+      } else if (currentScrollY > lastScrollY.current + 3) {
         setIsVisible(false);
-      } else if (currentScrollY < lastScrollY.current - 5) {
+      } else if (currentScrollY < lastScrollY.current - 3) {
         setIsVisible(true);
       }
 
@@ -45,7 +45,7 @@ export function Header() {
   }, []);
 
   const navLinkClass = ({ isActive }: { isActive: boolean }) =>
-    `flex h-full items-center border-b-2 text-[13px] lg:duration-250 lg:ease-in-out tracking-wide hover:text-neutral-400 ${
+    `flex h-full items-center border-b-2 text-[13px] lg:duration-250 lg:ease-in-out hover:text-neutral-400 ${
       isActive
         ? "border-b-amber-400 !text-amber-400"
         : "border-b-transparent text-neutral-200"
@@ -58,7 +58,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 z-50 h-15 w-full bg-black/75 font-semibold backdrop-blur-md transition-transform duration-400 ease-in-out ${
+      className={`fixed top-0 z-50 h-15 w-full bg-black/75 font-extrabold backdrop-blur-md transition-transform duration-400 ease-in-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -73,21 +73,14 @@ export function Header() {
 
           <div className="hidden h-full gap-8 lg:flex">
             <NavLink className={navLinkClass} to="/" draggable="false">
-              <div className="flex items-center gap-2" tabIndex={-1}>
+              <div className="flex items-center gap-1.5" tabIndex={-1}>
                 <Home size={18} />
                 <span>INÍCIO</span>
               </div>
             </NavLink>
 
-            <NavLink className={navLinkClass} to="/discover" draggable="false">
-              <div className="flex items-center gap-2">
-                <Compass size={18} />
-                <span>EXPLORAR</span>
-              </div>
-            </NavLink>
-
             <NavLink className={navLinkClass} to="/movies" draggable="false">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <Clapperboard size={18} />
                 <span>FILMES</span>
               </div>
@@ -99,9 +92,16 @@ export function Header() {
               draggable="false"
               end
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <TvMinimal size={18} />
                 <span>SÉRIES</span>
+              </div>
+            </NavLink>
+
+            <NavLink className={navLinkClass} to="/discover" draggable="false">
+              <div className="flex items-center gap-1.5">
+                <Compass size={18} />
+                <span>EXPLORAR</span>
               </div>
             </NavLink>
 
@@ -110,22 +110,15 @@ export function Header() {
               to="/watch-list"
               draggable="false"
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
                 <Bookmark size={18} />
                 <span>SALVOS</span>
-              </div>
-            </NavLink>
-
-            <NavLink className={navLinkClass} to="/search" draggable="false">
-              <div className="flex items-center gap-2" tabIndex={-1}>
-                <Search size={18} />
-                <span>BUSCAR</span>
               </div>
             </NavLink>
           </div>
         </div>
 
-        <div className="ml-4 flex items-center gap-4">
+        <div className="flex items-center gap-4">
           <NavLink to="/search" title="Search" className="lg:hidden">
             {({ isActive }) => (
               <Search
@@ -133,6 +126,13 @@ export function Header() {
                 size={28}
               />
             )}
+          </NavLink>
+
+          <NavLink className={navLinkClass} to="/search" draggable="false">
+            <div className="flex items-center gap-1.5" tabIndex={-1}>
+              <Search size={18} />
+              <span>BUSCAR</span>
+            </div>
           </NavLink>
 
           <NavLink to="/profile" title="Profile" draggable="false">
