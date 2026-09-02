@@ -18,9 +18,11 @@ export function MediaSection({ title, media }: MediaSectionProps) {
   if (media.length === 0) return null;
 
   return (
-    <section className="overflow-hidden py-3">
+    <section className="overflow-hidden py-5">
       <Container>
-        <h2 className="mb-4 text-xl font-semibold md:text-2xl">{title}</h2>
+        <h2 className="mb-4 text-xl font-bold tracking-tight md:text-2xl">
+          {title}
+        </h2>
       </Container>
 
       <Carousel

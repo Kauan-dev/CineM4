@@ -14,11 +14,11 @@ export function MediaCard({ media }: MediaCardProps) {
     <Link
       to={`/${type}/${media.id}`}
       title={title}
-      className="w-ful block shrink-0 rounded-sm outline-2 outline-offset-3 outline-transparent transition-all duration-300 ease-in-out hover:outline-neutral-50 focus-visible:outline-neutral-50"
+      className="w-ful block shrink-0 rounded-md outline-2 outline-offset-3 outline-transparent transition-all duration-300 ease-in-out hover:outline-neutral-50 focus-visible:outline-neutral-50"
     >
       {media.poster_path && (
         <img
-          className="aspect-2/3 w-full rounded-sm object-cover"
+          className="aspect-2/3 w-full rounded-md object-cover"
           src={`https://image.tmdb.org/t/p/w500${media.poster_path}`}
           title={title}
           alt={title}
