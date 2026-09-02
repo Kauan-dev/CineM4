@@ -20,12 +20,6 @@ export function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (window.innerWidth >= 1024) {
-        setIsVisible(true);
-        lastScrollY.current = currentScrollY;
-        return;
-      }
-
       if (currentScrollY <= 0) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current + 3) {
@@ -70,55 +64,46 @@ export function Header() {
               <span className="text-amber-400">M4</span>
             </div>
           </NavLink>
-
-          <div className="hidden h-full gap-8 lg:flex">
-            <NavLink className={navLinkClass} to="/" draggable="false">
-              <div className="flex items-center gap-1.5" tabIndex={-1}>
-                <Home size={18} />
-                <span>INÍCIO</span>
-              </div>
-            </NavLink>
-
-            <NavLink className={navLinkClass} to="/movies" draggable="false">
-              <div className="flex items-center gap-1.5">
-                <Clapperboard size={18} />
-                <span>FILMES</span>
-              </div>
-            </NavLink>
-
-            <NavLink
-              className={navLinkClass}
-              to="/series"
-              draggable="false"
-              end
-            >
-              <div className="flex items-center gap-1.5">
-                <TvMinimal size={18} />
-                <span>SÉRIES</span>
-              </div>
-            </NavLink>
-
-            <NavLink className={navLinkClass} to="/discover" draggable="false">
-              <div className="flex items-center gap-1.5">
-                <Compass size={18} />
-                <span>EXPLORAR</span>
-              </div>
-            </NavLink>
-
-            <NavLink
-              className={navLinkClass}
-              to="/watch-list"
-              draggable="false"
-            >
-              <div className="flex items-center gap-1.5">
-                <Bookmark size={18} />
-                <span>SALVOS</span>
-              </div>
-            </NavLink>
-          </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="hidden h-full gap-8 lg:flex">
+          <NavLink className={navLinkClass} to="/" draggable="false">
+            <div className="flex items-center gap-1.5" tabIndex={-1}>
+              <Home size={18} />
+              <span>INÍCIO</span>
+            </div>
+          </NavLink>
+
+          <NavLink className={navLinkClass} to="/movies" draggable="false">
+            <div className="flex items-center gap-1.5">
+              <Clapperboard size={18} />
+              <span>FILMES</span>
+            </div>
+          </NavLink>
+
+          <NavLink className={navLinkClass} to="/series" draggable="false" end>
+            <div className="flex items-center gap-1.5">
+              <TvMinimal size={18} />
+              <span>SÉRIES</span>
+            </div>
+          </NavLink>
+
+          <NavLink className={navLinkClass} to="/discover" draggable="false">
+            <div className="flex items-center gap-1.5">
+              <Compass size={18} />
+              <span>EXPLORAR</span>
+            </div>
+          </NavLink>
+
+          <NavLink className={navLinkClass} to="/watch-list" draggable="false">
+            <div className="flex items-center gap-1">
+              <Bookmark size={18} />
+              <span>SALVOS</span>
+            </div>
+          </NavLink>
+        </div>
+
+        <div className="flex items-center gap-2 lg:gap-6">
           <NavLink to="/search" title="Search" className="lg:hidden">
             {({ isActive }) => (
               <Search
@@ -129,7 +114,10 @@ export function Header() {
           </NavLink>
 
           <NavLink className={navLinkClass} to="/search" draggable="false">
-            <div className="flex items-center gap-1.5" tabIndex={-1}>
+            <div
+              className="hidden items-center gap-1.5 lg:mt-0.5 lg:flex"
+              tabIndex={-1}
+            >
               <Search size={18} />
               <span>BUSCAR</span>
             </div>
