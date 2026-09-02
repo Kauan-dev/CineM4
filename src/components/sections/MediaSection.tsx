@@ -20,7 +20,7 @@ export function MediaSection({ title, media }: MediaSectionProps) {
   return (
     <section className="overflow-hidden py-5">
       <Container>
-        <h2 className="mb-4 text-xl font-bold tracking-tight md:text-2xl">
+        <h2 className="mb-4 text-xl font-semibold tracking-tight md:text-[26px]">
           {title}
         </h2>
       </Container>
@@ -33,7 +33,7 @@ export function MediaSection({ title, media }: MediaSectionProps) {
           dragFree: true,
         }}
       >
-        <CarouselContent className="pr-5 pl-6 md:pr-7 md:pl-8 lg:pr-9 lg:pl-10">
+        <CarouselContent className="pr-5 pl-6 md:pr-7 lg:pr-9 lg:pl-10">
           {media.map((item) => (
             <CarouselItem
               key={item.id}
