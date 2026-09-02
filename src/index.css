@@ -1,6 +1,36 @@
 @import "tailwindcss";
 
+:root {
+  color-scheme: dark;
+}
+
 body {
+  margin: 0;
   background-color: #080a09;
   color: #ececec;
+  font-family: "Manrope", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080a09;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262a27;
+  border: 2px solid #080a09;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #343936;
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #262a27 #080a09;
 }
