@@ -52,7 +52,7 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 z-50 h-15 w-full bg-black/75 font-extrabold backdrop-blur-md transition-transform duration-400 ease-in-out ${
+      className={`fixed top-0 z-50 h-15 w-full bg-[#080a09]/75 font-extrabold backdrop-blur-md transition-transform duration-400 ease-in-out ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >

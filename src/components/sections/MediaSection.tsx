@@ -37,7 +37,7 @@ export function MediaSection({ title, media }: MediaSectionProps) {
           {media.map((item) => (
             <CarouselItem
               key={item.id}
-              className="max-w-[45%] basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6"
+              className="max-w-[45%] basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/5 xl:basis-1/6 2xl:basis-60"
             >
               <MediaCard media={item} />
             </CarouselItem>

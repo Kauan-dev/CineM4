@@ -4,7 +4,7 @@ type FeaturedProps = {
 
 export function Featured({ image }: FeaturedProps) {
   return (
-    <section className="relative h-100 w-full overflow-hidden sm:h-112.5 lg:h-130">
+    <section className="relative h-100 w-full overflow-hidden sm:h-112.5 lg:h-130 xl:h-[74vh]">
       {/* Imagem */}
       <img
         src={image}

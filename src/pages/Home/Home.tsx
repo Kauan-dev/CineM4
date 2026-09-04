@@ -23,7 +23,7 @@ export function Home() {
 
   return (
     <div>
-      <Featured image="src/assets/featured.jpg" />
+      <Featured image="https://image.tmdb.org/t/p/original/twiVn9oFXOVR0uoYgawyEBlnFu8.jpg" />
 
       <div>
         <MediaSection title="Filmes populares" media={popularMovies} />
