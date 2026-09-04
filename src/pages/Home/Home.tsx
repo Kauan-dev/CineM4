@@ -26,7 +26,11 @@ export function Home() {
       <Featured image="https://image.tmdb.org/t/p/original/twiVn9oFXOVR0uoYgawyEBlnFu8.jpg" />
 
       <div>
-        <MediaSection title="Filmes populares" media={popularMovies} />
+        <MediaSection
+          title="Filmes populares"
+          media={popularMovies}
+          className="mt-0"
+        />
 
         <MediaSection title="Séries populares" media={popularSeries} />
 
