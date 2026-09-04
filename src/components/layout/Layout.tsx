@@ -13,7 +13,7 @@ function Layout({ children }: LayoutProps) {
     <>
       <Header />
 
-      <main className="mt-13 mb-13 min-h-[calc(100dvh-120px)] py-4 lg:mb-0 lg:min-h-[calc(100vh-137px)]">
+      <main className="mt-13 mb-13 min-h-[calc(100dvh-120px)] pt-2 pb-4 lg:mb-0 lg:min-h-[calc(100vh-137px)]">
         {children}
       </main>
 

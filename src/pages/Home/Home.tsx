@@ -1,6 +1,7 @@
 import { useHomeData } from "@/hooks/useHomeData";
 
 import { MediaSection } from "@/components/sections/MediaSection";
+import { Featured } from "@/components/sections/Featured";
 
 export function Home() {
   const {
@@ -22,13 +23,23 @@ export function Home() {
 
   return (
     <div>
-      <MediaSection title="Filmes populares" media={popularMovies} />
+      <Featured image="src/assets/featured.jpg" />
 
-      <MediaSection title="Séries populares" media={popularSeries} />
+      <div>
+        <MediaSection title="Filmes populares" media={popularMovies} />
 
-      <MediaSection title="Filmes mais bem avaliados" media={topRatedMovies} />
+        <MediaSection title="Séries populares" media={popularSeries} />
 
-      <MediaSection title="Séries mais bem avaliadas" media={topRatedSeries} />
+        <MediaSection
+          title="Filmes mais bem avaliados"
+          media={topRatedMovies}
+        />
+
+        <MediaSection
+          title="Séries mais bem avaliadas"
+          media={topRatedSeries}
+        />
+      </div>
     </div>
   );
 }
