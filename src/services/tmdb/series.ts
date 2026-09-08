@@ -1,5 +1,5 @@
 import { tmdbFetch } from "./api";
-import type { SeriesListResponse } from "./types";
+import type { SeriesDetails, SeriesListResponse } from "./types";
 
 export function getPopularSeries() {
   return tmdbFetch<SeriesListResponse>("/tv/popular");
@@ -7,4 +7,8 @@ export function getPopularSeries() {
 
 export function getTopRatedSeries() {
   return tmdbFetch<SeriesListResponse>("/tv/top_rated");
+}
+
+export function getSeriesDetails(id: string | number) {
+  return tmdbFetch<SeriesDetails>(`/tv/${id}`);
 }

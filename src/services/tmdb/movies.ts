@@ -1,5 +1,5 @@
 import { tmdbFetch } from "./api";
-import type { MovieListResponse } from "./types";
+import type { MovieDetails, MovieListResponse } from "./types";
 
 export function getPopularMovies() {
   return tmdbFetch<MovieListResponse>("/movie/popular");
@@ -11,4 +11,8 @@ export function getTopRatedMovies() {
 
 export function getUpcomingMovies() {
   return tmdbFetch<MovieListResponse>("/movie/upcoming");
+}
+
+export function getMovieDetails(id: string | number) {
+  return tmdbFetch<MovieDetails>(`/movie/${id}`);
 }

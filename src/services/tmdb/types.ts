@@ -1,7 +1,13 @@
+export interface Genre {
+  id: number;
+  name: string;
+}
+
 export interface Movie {
   id: number;
   title: string;
   poster_path: string | null;
+  backdrop_path?: string | null;
   release_date: string;
   vote_average: number;
 }
@@ -17,6 +23,7 @@ export interface Series {
   id: number;
   name: string;
   poster_path: string | null;
+  backdrop_path?: string | null;
   first_air_date: string;
   vote_average: number;
 }
@@ -27,3 +34,27 @@ export interface SeriesListResponse {
   total_pages: number;
   total_results: number;
 }
+
+export interface MovieDetails extends Movie {
+  overview: string;
+  tagline: string | null;
+  genres: Genre[];
+  runtime: number | null;
+  status: string;
+  original_title: string;
+  homepage: string | null;
+}
+
+export interface SeriesDetails extends Series {
+  overview: string;
+  tagline: string | null;
+  genres: Genre[];
+  episode_run_time: number[];
+  number_of_episodes: number;
+  number_of_seasons: number;
+  status: string;
+  original_name: string;
+  homepage: string | null;
+}
+
+export type MediaDetailsData = MovieDetails | SeriesDetails;
