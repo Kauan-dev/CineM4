@@ -66,7 +66,7 @@ export function Header() {
           </NavLink>
         </div>
 
-        <div className="hidden h-full gap-8 lg:flex">
+        <div className="hidden h-full gap-10 lg:flex">
           <NavLink className={navLinkClass} to="/" draggable="false">
             <div className="flex items-center gap-1.5" tabIndex={-1}>
               <Home size={18} />
