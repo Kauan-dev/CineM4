@@ -13,35 +13,38 @@ export function Home() {
     error,
   } = useHomeData();
 
-  if (loading) {
-    return <p>Carregando...</p>;
-  }
-
   if (error) {
     return <p>{error}</p>;
   }
 
   return (
-    <div>
+    <div className="animate-in fade-in duration-300">
+      {" "}
       <Featured image="https://image.tmdb.org/t/p/original/twiVn9oFXOVR0uoYgawyEBlnFu8.jpg" />
-
       <div>
         <MediaSection
           title="Filmes populares"
           media={popularMovies}
+          loading={loading}
           className="mt-0"
         />
 
-        <MediaSection title="Séries populares" media={popularSeries} />
+        <MediaSection
+          title="Séries populares"
+          media={popularSeries}
+          loading={loading}
+        />
 
         <MediaSection
           title="Filmes mais bem avaliados"
           media={topRatedMovies}
+          loading={loading}
         />
 
         <MediaSection
           title="Séries mais bem avaliadas"
           media={topRatedSeries}
+          loading={loading}
         />
       </div>
     </div>

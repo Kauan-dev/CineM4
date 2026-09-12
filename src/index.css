@@ -34,3 +34,28 @@ html {
   scrollbar-width: thin;
   scrollbar-color: #262a27 #080a09;
 }
+
+@keyframes media-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.media-card-enter {
+  opacity: 0;
+  animation: media-card-enter 300ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media-card-enter {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
+}

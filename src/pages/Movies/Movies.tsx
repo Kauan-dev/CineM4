@@ -5,19 +5,28 @@ export function Movies() {
   const { upcomingMovies, popularMovies, topRatedMovies, loading, error } =
     useMoviesData();
 
-  if (loading) {
-    return <p>Carregando...</p>;
-  }
-
   if (error) {
     return <p>{error}</p>;
   }
 
   return (
-    <div>
-      <MediaSection title="Em breve nos cinemas" media={upcomingMovies} />
-      <MediaSection title="Filmes populares" media={popularMovies} />
-      <MediaSection title="Filmes mais bem avaliados" media={topRatedMovies} />
+    <div className="animate-in fade-in duration-300">
+      {" "}
+      <MediaSection
+        title="Em breve nos cinemas"
+        media={upcomingMovies}
+        loading={loading}
+      />
+      <MediaSection
+        title="Filmes populares"
+        media={popularMovies}
+        loading={loading}
+      />
+      <MediaSection
+        title="Filmes mais bem avaliados"
+        media={topRatedMovies}
+        loading={loading}
+      />
     </div>
   );
 }
