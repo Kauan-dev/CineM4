@@ -46,9 +46,12 @@ export function Header() {
     }`;
 
   const navIconClass = (isActive: boolean, baseClass = "") =>
-    [baseClass, isActive ? "stroke-amber-400 stroke-2" : ""]
+    `lg:duration-250 lg:ease-in-out ${[
+      baseClass,
+      isActive ? "stroke-amber-400 stroke-2" : "",
+    ]
       .filter(Boolean)
-      .join(" ");
+      .join(" ")}`;
 
   return (
     <header
@@ -113,7 +116,13 @@ export function Header() {
             )}
           </NavLink>
 
-          <NavLink className={navLinkClass} to="/search" draggable="false">
+          <NavLink
+            className={(props) =>
+              `${navLinkClass(props)} lg:border-b-transparent!`
+            }
+            to="/search"
+            draggable="false"
+          >
             <div
               className="hidden items-center gap-1.5 lg:mt-0.5 lg:flex"
               tabIndex={-1}
