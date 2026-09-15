@@ -26,7 +26,7 @@ export function MediaSection({
 }: MediaSectionProps) {
   if (!loading && media.length === 0) return null;
 
-  const skeletons = Array.from({ length: 6 });
+  const skeletons = Array.from({ length: 20 });
 
   return (
     <section

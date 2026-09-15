@@ -49,7 +49,7 @@ export function MediaDetails() {
         <img
           src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
           alt=""
-          className="h-[36vh] w-full object-cover object-[50%_30%] sm:h-[50vh] md:h-[62vh] lg:h-[72vh]"
+          className="h-100 w-full overflow-hidden object-cover object-[50%_30%] sm:h-112.5 md:h-[62vh] lg:h-130 xl:h-[74vh]"
         />
 
         <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
