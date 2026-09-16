@@ -2,12 +2,17 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { getMovieDetails } from "@/services/tmdb/movies";
 import { getSeriesDetails } from "@/services/tmdb/series";
-import type { MediaDetailsData } from "@/services/tmdb/types";
+import type {
+  MediaDetailsData,
+  MediaImagesResponse,
+} from "@/services/tmdb/types";
+import { tmdbFetch } from "@/services/tmdb/api";
 
 export function MediaDetails() {
   const { media_type, id } = useParams();
 
   const [media, setMedia] = useState<MediaDetailsData | null>(null);
+  const [logoPath, setLogoPath] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -21,6 +26,24 @@ export function MediaDetails() {
       setMedia(data);
     };
 
+    const fetchLogo = async () => {
+      const data = await tmdbFetch<MediaImagesResponse>(
+        `/${media_type === "movie" ? "movie" : "tv"}/${id}/images`,
+        {},
+        false,
+      );
+
+      const logo =
+        data.logos.find((logo) => logo.iso_3166_1 === "BR") ??
+        data.logos.find((logo) => logo.iso_639_1 === "en") ??
+        data.logos[0];
+
+      const path = logo?.file_path ?? null;
+
+      setLogoPath(path);
+    };
+
+    fetchLogo();
     fetchMedia();
   }, [id, media_type]);
 
@@ -32,7 +55,9 @@ export function MediaDetails() {
 
   const year = new Date(
     "release_date" in media ? media.release_date : media.first_air_date,
-  ).toLocaleDateString("pt-BR", { year: "numeric" });
+  ).toLocaleDateString("pt-BR", {
+    year: "numeric",
+  });
 
   const runtimeOrSeasons =
     "runtime" in media
@@ -55,11 +80,22 @@ export function MediaDetails() {
         <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
       </div>
 
+      {logoPath && (
+        <img
+          src={`https://image.tmdb.org/t/p/w500${logoPath}`}
+          alt={title}
+          draggable="false"
+          className="select-none"
+        />
+      )}
+
       <h1>{title}</h1>
 
       <div className="flex gap-1">
         <div>{year}</div>
+
         <span>-</span>
+
         <div>{runtimeOrSeasons}</div>
       </div>
 

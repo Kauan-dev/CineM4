@@ -57,4 +57,14 @@ export interface SeriesDetails extends Series {
   homepage: string | null;
 }
 
+export interface MediaLogo {
+  iso_3166_1: string | null;
+  iso_639_1: string | null;
+  file_path: string;
+}
+
+export interface MediaImagesResponse {
+  logos: MediaLogo[];
+}
+
 export type MediaDetailsData = MovieDetails | SeriesDetails;
