@@ -7,6 +7,7 @@ import type {
   MediaImagesResponse,
 } from "@/services/tmdb/types";
 import { tmdbFetch } from "@/services/tmdb/api";
+import { Container } from "@/components/layout/Container";
 
 export function MediaDetails() {
   const { media_type, id } = useParams();
@@ -80,28 +81,36 @@ export function MediaDetails() {
         <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
       </div>
 
-      {logoPath && (
-        <img
-          src={`https://image.tmdb.org/t/p/w500${logoPath}`}
-          alt={title}
-          draggable="false"
-          className="select-none"
-        />
-      )}
+      <Container>
+        {logoPath ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w500${logoPath}`}
+            alt={title}
+            draggable="false"
+            className="max-w-[70%] place-self-center select-none lg:place-self-start"
+          />
+        ) : (
+          <h1 className="place-self-center text-center text-3xl lg:place-self-start lg:text-start lg:text-[40px]">
+            {title}
+          </h1>
+        )}
+      </Container>
 
-      <h1>{title}</h1>
+      <Container className="mt-14 flex flex-col gap-3">
+        <div className="text-gray-400">
+          <div className="flex gap-1">
+            <div>{year}</div>
 
-      <div className="flex gap-1">
-        <div>{year}</div>
+            <span>-</span>
 
-        <span>-</span>
+            <div>{runtimeOrSeasons}</div>
+          </div>
 
-        <div>{runtimeOrSeasons}</div>
-      </div>
+          <div>{media.genres.map((genre) => genre.name).join(", ")}</div>
+        </div>
 
-      <div>{media.genres.map((genre) => genre.name).join(", ")}</div>
-
-      <p>{media.overview}</p>
+        <p>{media.overview}</p>
+      </Container>
     </main>
   );
 }
