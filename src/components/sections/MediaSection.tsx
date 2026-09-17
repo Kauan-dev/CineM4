@@ -46,7 +46,7 @@ export function MediaSection({
         className="w-full select-none"
         opts={{ align: "start", slidesToScroll: "auto", dragFree: true }}
       >
-        <CarouselContent className="pr-5 pl-6 md:pr-7 lg:pr-9 lg:pl-10">
+        <CarouselContent className="pr-5 pl-5 md:pr-7 lg:pr-9 lg:pl-7">
           {loading
             ? skeletons.map((_, index) => (
                 <CarouselItem

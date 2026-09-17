@@ -10,7 +10,7 @@ export function Container({
   ...props
 }: ContainerProps) {
   return (
-    <div className={`mx-4.5 lg:mx-8 ${className}`} {...props}>
+    <div className={`mx-3.5 lg:mx-6 ${className}`} {...props}>
       {children}
     </div>
   );
