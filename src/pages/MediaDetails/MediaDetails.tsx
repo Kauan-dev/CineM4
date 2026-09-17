@@ -72,29 +72,31 @@ export function MediaDetails() {
   return (
     <main>
       <div className="relative w-full">
-        <img
-          src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
-          alt=""
-          className="h-100 w-full overflow-hidden object-cover object-[50%_30%] sm:h-112.5 md:h-[62vh] lg:h-130 xl:h-[74vh]"
-        />
-
-        <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
-      </div>
-
-      <Container>
-        {logoPath ? (
+        <div>
           <img
-            src={`https://image.tmdb.org/t/p/w500${logoPath}`}
-            alt={title}
-            draggable="false"
-            className="max-w-[70%] place-self-center select-none lg:place-self-start"
+            src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
+            alt=""
+            className="h-100 w-full overflow-hidden object-cover object-[50%_30%] sm:h-112.5 md:h-[62vh] lg:h-130 xl:h-[calc(100vh-60px)]"
+            // xl:h-[74vh]
           />
-        ) : (
-          <h1 className="place-self-center text-center text-3xl lg:place-self-start lg:text-start lg:text-[40px]">
-            {title}
-          </h1>
-        )}
-      </Container>
+
+          <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
+        </div>
+        <Container>
+          {logoPath ? (
+            <img
+              src={`https://image.tmdb.org/t/p/w500${logoPath}`}
+              alt={title}
+              draggable="false"
+              className="absolute bottom-5 max-w-[70%] place-self-center select-none lg:place-self-start"
+            />
+          ) : (
+            <h1 className="absolute z-99 place-self-center text-center text-3xl lg:place-self-start lg:text-start lg:text-[40px]">
+              {title}
+            </h1>
+          )}
+        </Container>
+      </div>
 
       <Container className="mt-14 flex flex-col gap-3">
         <div className="text-gray-400">
@@ -109,7 +111,7 @@ export function MediaDetails() {
           <div>{media.genres.map((genre) => genre.name).join(", ")}</div>
         </div>
 
-        <p>{media.overview}</p>
+        <p className="max-w-150">{media.overview}</p>
       </Container>
     </main>
   );
