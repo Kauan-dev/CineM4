@@ -9,6 +9,10 @@ import type {
 import { tmdbFetch } from "@/services/tmdb/api";
 import { Container } from "@/components/layout/Container";
 
+import { db } from "../../firebaseConnection";
+import { addDoc, collection } from "firebase/firestore";
+import { Play, Plus } from "lucide-react";
+
 export function MediaDetails() {
   const { media_type, id } = useParams();
 
@@ -69,6 +73,17 @@ export function MediaDetails() {
           media.number_of_seasons === 1 ? "temporada" : "temporadas"
         }`;
 
+  async function handleAdd() {
+    if (!media) return;
+
+    const typeMedia = media_type === "movie" ? "movie" : "tv";
+
+    await addDoc(collection(db, "favorites"), {
+      media_id: media.id,
+      media_type: typeMedia,
+    });
+  }
+
   return (
     <main>
       <div className="relative w-full">
@@ -77,7 +92,6 @@ export function MediaDetails() {
             src={`https://image.tmdb.org/t/p/original${media.backdrop_path}`}
             alt=""
             className="h-100 w-full overflow-hidden object-cover object-[50%_30%] sm:h-112.5 md:h-[62vh] lg:h-130 xl:h-[calc(100vh-60px)]"
-            // xl:h-[74vh]
           />
 
           <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent" />
@@ -98,20 +112,49 @@ export function MediaDetails() {
         </Container>
       </div>
 
-      <Container className="mt-14 flex flex-col gap-3">
-        <div className="text-gray-400">
-          <div className="flex gap-1">
+      <Container className="flex flex-col gap-6">
+        <div className="flex flex-col gap-3 text-gray-400">
+          <div className="flex gap-0.5 place-self-center lg:place-self-start">
             <div>{year}</div>
 
-            <span>-</span>
+            <span>•</span>
 
             <div>{runtimeOrSeasons}</div>
           </div>
 
-          <div>{media.genres.map((genre) => genre.name).join(", ")}</div>
+          <div className="mt-2 flex gap-2 place-self-center lg:place-self-start">
+            {media.genres.map((genre) => (
+              <span
+                key={genre.id}
+                className="flex w-fit cursor-pointer items-center justify-center gap-2.25 rounded-full border bg-black px-3 py-3.25 text-sm leading-0 font-medium tracking-tighter text-white"
+              >
+                {genre.name}
+              </span>
+            ))}
+          </div>
         </div>
 
-        <p className="max-w-150">{media.overview}</p>
+        <p className="max-w-150 place-self-center text-center lg:place-self-start lg:text-start">
+          {media.overview}
+        </p>
+      </Container>
+
+      <Container className="mt-4 flex items-center justify-center gap-4 py-4 lg:justify-start">
+        <button
+          className="text-md flex w-40 cursor-pointer items-center justify-center gap-2.25 rounded-full bg-amber-400 py-3.25 leading-0 font-semibold tracking-tighter text-black"
+          onClick={handleAdd}
+        >
+          <Play fill="black" size={20} />
+          <span>Ver trailer</span>
+        </button>
+
+        <button
+          className="text-md flex w-35 cursor-pointer items-center justify-center gap-2.25 rounded-full border bg-black py-3.25 leading-0 font-semibold tracking-tighter text-white"
+          onClick={handleAdd}
+        >
+          <Plus color="white" size={20} />
+          <span>Salvar</span>
+        </button>
       </Container>
     </main>
   );
